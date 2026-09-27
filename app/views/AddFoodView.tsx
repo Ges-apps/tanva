@@ -169,7 +169,7 @@ export function AddFoodView() {
           onClick={() => setView('dashboard')}
           className="glass rounded-xl p-2.5 transition-all hover:scale-105 active:scale-95"
         >
-          <ArrowRight size={20} className="text-gray-600 dark:text-gray-300" />
+          <ArrowRight size={20} className="text-gray-600 rotate-180 dark:text-gray-300" />
         </button>
       </div>
 
