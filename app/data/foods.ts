@@ -1,219 +1,250 @@
+
 import type { FoodItem, MealType } from "@/types";
 
-// Nutrient values are normalized to kcal/g of protein/g of carbohydrate/g of fat per 100 g
-// (or per 100 ml for liquid foods). Natural serving information is kept separately.
-// Source basis: USDA FoodData Central. See the accompanying explanation for serving conversion.
+// Nutrient values are normalized per 100 g
+// (or per 100 ml for liquid foods).
+//
+// servingWeightGrams is the edible weight represented by ONE serving.
+// For foods measured by "عدد", nutrients are calculated from this weight.
+//
+// Source basis: USDA FoodData Central.
+// USDA uses nutrient values per 100 g and separate food-portion weights
+// to calculate nutrients for household / natural serving sizes.
+
 export const FOODS: FoodItem[] = [
-  {
-    id: "egg-whole-large",
-    name: "تخم‌مرغ کامل",
-    nameEn: "Egg, whole, large",
-    unit: "عدد",
-    calories: 144,
-    protein: 12.6,
-    carbs: 0.72,
-    fat: 9.6,
-    servingSize: 1,
-    servingUnit: "عدد",
-    servingWeightGrams: 50,
-    source: "USDA FoodData Central",
-  },
-  {
-    id: "egg-white",
-    name: "سفیده تخم‌مرغ",
-    nameEn: "Egg white",
-    unit: "عدد",
-    calories: 51.52,
-    protein: 10.91,
-    carbs: 0.73,
-    fat: 0.18,
-    servingSize: 1,
-    servingUnit: "عدد",
-    servingWeightGrams: 33,
-    source: "USDA FoodData Central",
-  },
-  {
-    id: "banana",
-    name: "موز",
-    nameEn: "Bananas, raw",
-    unit: "عدد",
-    calories: 88.98,
-    protein: 1.09,
-    carbs: 22.88,
-    fat: 0.33,
-    servingSize: 1,
-    servingUnit: "عدد",
-    servingWeightGrams: 118,
-    source: "USDA FoodData Central",
-  },
-  {
-    id: "apple",
-    name: "سیب",
-    nameEn: "Apples, raw, with skin",
-    unit: "عدد",
-    calories: 52.2,
-    protein: 0.26,
-    carbs: 13.81,
-    fat: 0.17,
-    servingSize: 1,
-    servingUnit: "عدد",
-    servingWeightGrams: 182,
-    source: "USDA FoodData Central",
-  },
-  {
-    id: "orange",
-    name: "پرتقال",
-    nameEn: "Oranges, raw",
-    unit: "عدد",
-    calories: 47.33,
-    protein: 0.94,
-    carbs: 11.75,
-    fat: 0.12,
-    servingSize: 1,
-    servingUnit: "عدد",
-    servingWeightGrams: 131,
-    source: "USDA FoodData Central",
-  },
+{
+  id: "egg-whole-large",
+  name: "تخم‌مرغ کامل",
+  nameEn: "Egg, whole, raw, fresh",
+  unit: "عدد",
+  calories: 143,
+  protein: 12.56,
+  carbs: 0.72,
+  fat: 9.51,
+  servingSize: 1,
+  servingUnit: "عدد",
+  servingWeightGrams: 50,
+  source: "USDA FoodData Central",
+},
+
+{
+  id: "egg-white",
+  name: "سفیده تخم‌مرغ",
+  nameEn: "Egg white, raw",
+  unit: "عدد",
+  calories: 52,
+  protein: 10.9,
+  carbs: 0.73,
+  fat: 0.17,
+  servingSize: 1,
+  servingUnit: "عدد",
+  servingWeightGrams: 33,
+  source: "USDA FoodData Central",
+},
+
+  // =========================
+  // FRUITS
+  // =========================
+
+{
+  id: "banana",
+  name: "موز",
+  nameEn: "Bananas, raw",
+  unit: "عدد",
+  calories: 89,
+  protein: 1.09,
+  carbs: 22.84,
+  fat: 0.33,
+  servingSize: 1,
+  servingUnit: "عدد",
+  servingWeightGrams: 118,
+  source: "USDA FoodData Central",
+},
+
+{
+  id: "apple",
+  name: "سیب",
+  nameEn: "Apples, raw, with skin",
+  unit: "عدد",
+  calories: 52,
+  protein: 0.26,
+  carbs: 13.81,
+  fat: 0.17,
+  servingSize: 1,
+  servingUnit: "عدد",
+  servingWeightGrams: 182,
+  source: "USDA FoodData Central",
+},
+
+{
+  id: "orange",
+  name: "پرتقال",
+  nameEn: "Oranges, raw",
+  unit: "عدد",
+  calories: 47,
+  protein: 0.94,
+  carbs: 11.75,
+  fat: 0.12,
+  servingSize: 1,
+  servingUnit: "عدد",
+  servingWeightGrams: 131,
+  source: "USDA FoodData Central",
+},
+
   {
     id: "strawberries",
     name: "توت‌فرنگی",
     nameEn: "Strawberries, raw",
-    unit: "گرم",
+    unit: "عدد",
     calories: 32,
     protein: 0.67,
     carbs: 7.7,
     fat: 0.3,
-    servingSize: 100,
-    servingUnit: "گرم",
-    servingWeightGrams: 100,
+    servingSize: 1,
+    servingUnit: "عدد",
+    servingWeightGrams: 12,
     source: "USDA FoodData Central",
   },
+
   {
     id: "blueberries",
     name: "بلوبری",
     nameEn: "Blueberries, raw",
-    unit: "گرم",
+    unit: "عدد",
     calories: 57,
     protein: 0.74,
     carbs: 14.5,
     fat: 0.33,
-    servingSize: 100,
-    servingUnit: "گرم",
-    servingWeightGrams: 100,
+    servingSize: 1,
+    servingUnit: "عدد",
+    servingWeightGrams: 2,
     source: "USDA FoodData Central",
   },
+
   {
     id: "grapes",
     name: "انگور",
     nameEn: "Grapes, raw",
-    unit: "گرم",
+    unit: "عدد",
     calories: 69,
     protein: 0.72,
     carbs: 18.1,
     fat: 0.16,
-    servingSize: 100,
-    servingUnit: "گرم",
-    servingWeightGrams: 100,
+    servingSize: 1,
+    servingUnit: "عدد",
+    servingWeightGrams: 5,
     source: "USDA FoodData Central",
   },
+
   {
     id: "watermelon",
     name: "هندوانه",
     nameEn: "Watermelon, raw",
-    unit: "گرم",
+    unit: "عدد",
     calories: 30,
     protein: 0.61,
     carbs: 7.6,
     fat: 0.15,
-    servingSize: 100,
-    servingUnit: "گرم",
-    servingWeightGrams: 100,
-    source: "USDA FoodData Central",
+    servingSize: 1,
+    servingUnit: "عدد",
+    servingWeightGrams: 280,
+    source: "USDA / FDA reference amount",
   },
+
   {
     id: "pineapple",
     name: "آناناس",
     nameEn: "Pineapple, raw",
-    unit: "گرم",
+    unit: "عدد",
     calories: 50,
     protein: 0.54,
     carbs: 13.2,
     fat: 0.12,
-    servingSize: 100,
-    servingUnit: "گرم",
-    servingWeightGrams: 100,
+    servingSize: 1,
+    servingUnit: "عدد",
+    servingWeightGrams: 905,
     source: "USDA FoodData Central",
   },
+
   {
     id: "mango",
     name: "انبه",
     nameEn: "Mango, raw",
-    unit: "گرم",
+    unit: "عدد",
     calories: 60,
     protein: 0.82,
     carbs: 15,
     fat: 0.38,
-    servingSize: 100,
-    servingUnit: "گرم",
-    servingWeightGrams: 100,
+    servingSize: 1,
+    servingUnit: "عدد",
+    servingWeightGrams: 336,
     source: "USDA FoodData Central",
   },
+
   {
     id: "peach",
     name: "هلو",
     nameEn: "Peaches, raw",
-    unit: "گرم",
+    unit: "عدد",
     calories: 39,
     protein: 0.91,
     carbs: 9.54,
     fat: 0.25,
-    servingSize: 100,
-    servingUnit: "گرم",
-    servingWeightGrams: 100,
+    servingSize: 1,
+    servingUnit: "عدد",
+    servingWeightGrams: 150,
     source: "USDA FoodData Central",
   },
+
   {
     id: "pear",
     name: "گلابی",
     nameEn: "Pears, raw",
-    unit: "گرم",
+    unit: "عدد",
     calories: 57,
     protein: 0.36,
     carbs: 15.2,
     fat: 0.14,
-    servingSize: 100,
-    servingUnit: "گرم",
-    servingWeightGrams: 100,
+    servingSize: 1,
+    servingUnit: "عدد",
+    servingWeightGrams: 178,
     source: "USDA FoodData Central",
   },
+
   {
     id: "kiwi",
     name: "کیوی",
     nameEn: "Kiwifruit, green, raw",
-    unit: "گرم",
+    unit: "عدد",
     calories: 61,
     protein: 1.1,
     carbs: 14.7,
     fat: 0.52,
-    servingSize: 100,
-    servingUnit: "گرم",
-    servingWeightGrams: 100,
+    servingSize: 1,
+    servingUnit: "عدد",
+    servingWeightGrams: 69,
     source: "USDA FoodData Central",
   },
+
   {
     id: "avocado",
     name: "آووکادو",
     nameEn: "Avocados, raw",
-    unit: "گرم",
+    unit: "عدد",
     calories: 160,
     protein: 2,
     carbs: 8.5,
     fat: 14.7,
-    servingSize: 100,
-    servingUnit: "گرم",
-    servingWeightGrams: 100,
+    servingSize: 1,
+    servingUnit: "عدد",
+    servingWeightGrams: 201,
     source: "USDA FoodData Central",
   },
+
+  // =========================
+  // VEGETABLES
+  // =========================
+
   {
     id: "tomato",
     name: "گوجه‌فرنگی",
@@ -228,6 +259,7 @@ export const FOODS: FoodItem[] = [
     servingWeightGrams: 100,
     source: "USDA FoodData Central",
   },
+
   {
     id: "cucumber",
     name: "خیار",
@@ -242,6 +274,7 @@ export const FOODS: FoodItem[] = [
     servingWeightGrams: 100,
     source: "USDA FoodData Central",
   },
+
   {
     id: "carrot",
     name: "هویج",
@@ -256,6 +289,7 @@ export const FOODS: FoodItem[] = [
     servingWeightGrams: 100,
     source: "USDA FoodData Central",
   },
+
   {
     id: "broccoli",
     name: "بروکلی",
@@ -270,6 +304,7 @@ export const FOODS: FoodItem[] = [
     servingWeightGrams: 100,
     source: "USDA FoodData Central",
   },
+
   {
     id: "cauliflower",
     name: "گل‌کلم",
@@ -284,6 +319,7 @@ export const FOODS: FoodItem[] = [
     servingWeightGrams: 100,
     source: "USDA FoodData Central",
   },
+
   {
     id: "spinach",
     name: "اسفناج",
@@ -298,6 +334,7 @@ export const FOODS: FoodItem[] = [
     servingWeightGrams: 100,
     source: "USDA FoodData Central",
   },
+
   {
     id: "potato",
     name: "سیب‌زمینی",
@@ -312,6 +349,7 @@ export const FOODS: FoodItem[] = [
     servingWeightGrams: 100,
     source: "USDA FoodData Central",
   },
+
   {
     id: "sweet-potato",
     name: "سیب‌زمینی شیرین",
@@ -326,6 +364,7 @@ export const FOODS: FoodItem[] = [
     servingWeightGrams: 100,
     source: "USDA FoodData Central",
   },
+
   {
     id: "mushrooms",
     name: "قارچ",
@@ -340,6 +379,7 @@ export const FOODS: FoodItem[] = [
     servingWeightGrams: 100,
     source: "USDA FoodData Central",
   },
+
   {
     id: "onion",
     name: "پیاز",
@@ -354,6 +394,7 @@ export const FOODS: FoodItem[] = [
     servingWeightGrams: 100,
     source: "USDA FoodData Central",
   },
+
   {
     id: "bell-pepper",
     name: "فلفل دلمه‌ای",
@@ -368,6 +409,11 @@ export const FOODS: FoodItem[] = [
     servingWeightGrams: 100,
     source: "USDA FoodData Central",
   },
+
+  // =========================
+  // PROTEINS
+  // =========================
+
   {
     id: "chicken-breast",
     name: "سینه مرغ",
@@ -382,6 +428,7 @@ export const FOODS: FoodItem[] = [
     servingWeightGrams: 100,
     source: "USDA FoodData Central",
   },
+
   {
     id: "chicken-thigh",
     name: "ران مرغ",
@@ -396,6 +443,7 @@ export const FOODS: FoodItem[] = [
     servingWeightGrams: 100,
     source: "USDA FoodData Central",
   },
+
   {
     id: "beef-ground",
     name: "گوشت چرخ‌کرده گاو",
@@ -410,6 +458,7 @@ export const FOODS: FoodItem[] = [
     servingWeightGrams: 100,
     source: "USDA FoodData Central",
   },
+
   {
     id: "beef-steak",
     name: "استیک گوشت گاو",
@@ -424,6 +473,7 @@ export const FOODS: FoodItem[] = [
     servingWeightGrams: 100,
     source: "USDA FoodData Central",
   },
+
   {
     id: "salmon",
     name: "سالمون",
@@ -438,6 +488,7 @@ export const FOODS: FoodItem[] = [
     servingWeightGrams: 100,
     source: "USDA FoodData Central",
   },
+
   {
     id: "tuna",
     name: "تن ماهی",
@@ -452,6 +503,7 @@ export const FOODS: FoodItem[] = [
     servingWeightGrams: 100,
     source: "USDA FoodData Central",
   },
+
   {
     id: "shrimp",
     name: "میگو",
@@ -466,6 +518,11 @@ export const FOODS: FoodItem[] = [
     servingWeightGrams: 100,
     source: "USDA FoodData Central",
   },
+
+  // =========================
+  // GRAINS
+  // =========================
+
   {
     id: "white-rice-cooked",
     name: "برنج سفید پخته",
@@ -480,6 +537,7 @@ export const FOODS: FoodItem[] = [
     servingWeightGrams: 100,
     source: "USDA FoodData Central",
   },
+
   {
     id: "brown-rice-cooked",
     name: "برنج قهوه‌ای پخته",
@@ -494,6 +552,7 @@ export const FOODS: FoodItem[] = [
     servingWeightGrams: 100,
     source: "USDA FoodData Central",
   },
+
   {
     id: "oats",
     name: "جو دوسر",
@@ -508,6 +567,7 @@ export const FOODS: FoodItem[] = [
     servingWeightGrams: 100,
     source: "USDA FoodData Central",
   },
+
   {
     id: "quinoa",
     name: "کینوا",
@@ -522,6 +582,7 @@ export const FOODS: FoodItem[] = [
     servingWeightGrams: 100,
     source: "USDA FoodData Central",
   },
+
   {
     id: "pasta-cooked",
     name: "پاستا پخته",
@@ -536,6 +597,11 @@ export const FOODS: FoodItem[] = [
     servingWeightGrams: 100,
     source: "USDA FoodData Central",
   },
+
+  // =========================
+  // DAIRY
+  // =========================
+
   {
     id: "whole-milk",
     name: "شیر کامل",
@@ -550,6 +616,7 @@ export const FOODS: FoodItem[] = [
     servingWeightGrams: 103,
     source: "USDA FoodData Central",
   },
+
   {
     id: "low-fat-milk",
     name: "شیر کم‌چرب",
@@ -564,6 +631,7 @@ export const FOODS: FoodItem[] = [
     servingWeightGrams: 103,
     source: "USDA FoodData Central",
   },
+
   {
     id: "yogurt",
     name: "ماست",
@@ -578,6 +646,7 @@ export const FOODS: FoodItem[] = [
     servingWeightGrams: 100,
     source: "USDA FoodData Central",
   },
+
   {
     id: "greek-yogurt",
     name: "ماست یونانی",
@@ -592,6 +661,7 @@ export const FOODS: FoodItem[] = [
     servingWeightGrams: 100,
     source: "USDA FoodData Central",
   },
+
   {
     id: "feta-cheese",
     name: "پنیر فتا",
@@ -606,6 +676,7 @@ export const FOODS: FoodItem[] = [
     servingWeightGrams: 100,
     source: "USDA FoodData Central",
   },
+
   {
     id: "cheddar-cheese",
     name: "پنیر چدار",
@@ -620,6 +691,11 @@ export const FOODS: FoodItem[] = [
     servingWeightGrams: 100,
     source: "USDA FoodData Central",
   },
+
+  // =========================
+  // NUTS & SEEDS
+  // =========================
+
   {
     id: "almonds",
     name: "بادام",
@@ -634,6 +710,7 @@ export const FOODS: FoodItem[] = [
     servingWeightGrams: 100,
     source: "USDA FoodData Central",
   },
+
   {
     id: "walnuts",
     name: "گردو",
@@ -648,6 +725,7 @@ export const FOODS: FoodItem[] = [
     servingWeightGrams: 100,
     source: "USDA FoodData Central",
   },
+
   {
     id: "pistachios",
     name: "پسته",
@@ -662,6 +740,7 @@ export const FOODS: FoodItem[] = [
     servingWeightGrams: 100,
     source: "USDA FoodData Central",
   },
+
   {
     id: "cashews",
     name: "بادام هندی",
@@ -676,6 +755,7 @@ export const FOODS: FoodItem[] = [
     servingWeightGrams: 100,
     source: "USDA FoodData Central",
   },
+
   {
     id: "peanuts",
     name: "بادام‌زمینی",
@@ -690,6 +770,7 @@ export const FOODS: FoodItem[] = [
     servingWeightGrams: 100,
     source: "USDA FoodData Central",
   },
+
   {
     id: "peanut-butter",
     name: "کره بادام‌زمینی",
@@ -704,6 +785,7 @@ export const FOODS: FoodItem[] = [
     servingWeightGrams: 100,
     source: "USDA FoodData Central",
   },
+
   {
     id: "chia-seeds",
     name: "دانه چیا",
@@ -718,6 +800,11 @@ export const FOODS: FoodItem[] = [
     servingWeightGrams: 100,
     source: "USDA FoodData Central",
   },
+
+  // =========================
+  // LEGUMES
+  // =========================
+
   {
     id: "lentils-cooked",
     name: "عدس پخته",
@@ -732,6 +819,7 @@ export const FOODS: FoodItem[] = [
     servingWeightGrams: 100,
     source: "USDA FoodData Central",
   },
+
   {
     id: "chickpeas-cooked",
     name: "نخود پخته",
@@ -746,6 +834,7 @@ export const FOODS: FoodItem[] = [
     servingWeightGrams: 100,
     source: "USDA FoodData Central",
   },
+
   {
     id: "kidney-beans-cooked",
     name: "لوبیا قرمز پخته",
@@ -760,6 +849,7 @@ export const FOODS: FoodItem[] = [
     servingWeightGrams: 100,
     source: "USDA FoodData Central",
   },
+
   {
     id: "black-beans-cooked",
     name: "لوبیا سیاه پخته",
@@ -774,20 +864,26 @@ export const FOODS: FoodItem[] = [
     servingWeightGrams: 100,
     source: "USDA FoodData Central",
   },
+
+  // =========================
+  // DRIED FRUITS
+  // =========================
+
   {
     id: "dates",
     name: "خرما",
-    nameEn: "Dates",
-    unit: "گرم",
+    nameEn: "Dates, Deglet Noor",
+    unit: "عدد",
     calories: 282,
     protein: 2.5,
     carbs: 75.4,
     fat: 0.4,
-    servingSize: 100,
-    servingUnit: "گرم",
-    servingWeightGrams: 100,
+    servingSize: 1,
+    servingUnit: "عدد",
+    servingWeightGrams: 7.1,
     source: "USDA FoodData Central",
   },
+
   {
     id: "raisins",
     name: "کشمش",
@@ -802,6 +898,11 @@ export const FOODS: FoodItem[] = [
     servingWeightGrams: 100,
     source: "USDA FoodData Central",
   },
+
+  // =========================
+  // OTHER
+  // =========================
+
   {
     id: "olive-oil",
     name: "روغن زیتون",
@@ -816,6 +917,7 @@ export const FOODS: FoodItem[] = [
     servingWeightGrams: 100,
     source: "USDA FoodData Central",
   },
+
   {
     id: "butter",
     name: "کره",
@@ -830,6 +932,7 @@ export const FOODS: FoodItem[] = [
     servingWeightGrams: 100,
     source: "USDA FoodData Central",
   },
+
   {
     id: "dark-chocolate",
     name: "شکلات تلخ",
@@ -844,6 +947,7 @@ export const FOODS: FoodItem[] = [
     servingWeightGrams: 100,
     source: "USDA FoodData Central",
   },
+
   {
     id: "honey",
     name: "عسل",
@@ -858,6 +962,7 @@ export const FOODS: FoodItem[] = [
     servingWeightGrams: 100,
     source: "USDA FoodData Central",
   },
+
   {
     id: "orange-juice",
     name: "آب پرتقال",
@@ -872,6 +977,7 @@ export const FOODS: FoodItem[] = [
     servingWeightGrams: 104,
     source: "USDA FoodData Central",
   },
+
   {
     id: "coffee",
     name: "قهوه سیاه",
@@ -886,6 +992,7 @@ export const FOODS: FoodItem[] = [
     servingWeightGrams: 100,
     source: "USDA FoodData Central",
   },
+
   {
     id: "green-peas",
     name: "نخودفرنگی",
@@ -900,6 +1007,7 @@ export const FOODS: FoodItem[] = [
     servingWeightGrams: 100,
     source: "USDA FoodData Central",
   },
+
   {
     id: "cabbage",
     name: "کلم",
@@ -914,6 +1022,7 @@ export const FOODS: FoodItem[] = [
     servingWeightGrams: 100,
     source: "USDA FoodData Central",
   },
+
   {
     id: "lettuce",
     name: "کاهو",
@@ -928,6 +1037,7 @@ export const FOODS: FoodItem[] = [
     servingWeightGrams: 100,
     source: "USDA FoodData Central",
   },
+
   {
     id: "eggplant",
     name: "بادمجان",
@@ -942,6 +1052,7 @@ export const FOODS: FoodItem[] = [
     servingWeightGrams: 100,
     source: "USDA FoodData Central",
   },
+
   {
     id: "zucchini",
     name: "کدو سبز",
@@ -956,6 +1067,7 @@ export const FOODS: FoodItem[] = [
     servingWeightGrams: 100,
     source: "USDA FoodData Central",
   },
+
   {
     id: "garlic",
     name: "سیر",
@@ -970,6 +1082,7 @@ export const FOODS: FoodItem[] = [
     servingWeightGrams: 100,
     source: "USDA FoodData Central",
   },
+
   {
     id: "corn",
     name: "ذرت",
@@ -984,6 +1097,7 @@ export const FOODS: FoodItem[] = [
     servingWeightGrams: 100,
     source: "USDA FoodData Central",
   },
+
   {
     id: "mushroom",
     name: "قارچ سفید",
@@ -998,34 +1112,37 @@ export const FOODS: FoodItem[] = [
     servingWeightGrams: 100,
     source: "USDA FoodData Central",
   },
+
   {
     id: "pomegranate",
     name: "انار",
     nameEn: "Pomegranates, raw",
-    unit: "گرم",
+    unit: "عدد",
     calories: 83,
     protein: 1.7,
     carbs: 18.9,
     fat: 1.2,
-    servingSize: 100,
-    servingUnit: "گرم",
-    servingWeightGrams: 100,
+    servingSize: 1,
+    servingUnit: "عدد",
+    servingWeightGrams: 282,
     source: "USDA FoodData Central",
   },
+
   {
     id: "melon",
     name: "خربزه",
     nameEn: "Melons, raw",
-    unit: "گرم",
+    unit: "عدد",
     calories: 34,
     protein: 0.84,
     carbs: 8.4,
     fat: 0.19,
-    servingSize: 100,
-    servingUnit: "گرم",
-    servingWeightGrams: 100,
+    servingSize: 1,
+    servingUnit: "عدد",
+    servingWeightGrams: 552,
     source: "USDA FoodData Central",
   },
+
   {
     id: "mandarin",
     name: "نارنگی",
@@ -1040,20 +1157,22 @@ export const FOODS: FoodItem[] = [
     servingWeightGrams: 88,
     source: "USDA FoodData Central",
   },
+
   {
     id: "lemon",
     name: "لیمو",
     nameEn: "Lemons, raw",
-    unit: "گرم",
+    unit: "عدد",
     calories: 29,
     protein: 1.1,
     carbs: 9.6,
     fat: 0.3,
-    servingSize: 100,
-    servingUnit: "گرم",
-    servingWeightGrams: 100,
+    servingSize: 1,
+    servingUnit: "عدد",
+    servingWeightGrams: 58,
     source: "USDA FoodData Central",
   },
+
   {
     id: "peanuts-roasted",
     name: "بادام‌زمینی بو داده",
@@ -1068,6 +1187,7 @@ export const FOODS: FoodItem[] = [
     servingWeightGrams: 100,
     source: "USDA FoodData Central",
   },
+
   {
     id: "sunflower-seeds",
     name: "تخمه آفتابگردان",
@@ -1082,6 +1202,7 @@ export const FOODS: FoodItem[] = [
     servingWeightGrams: 100,
     source: "USDA FoodData Central",
   },
+
   {
     id: "flax-seeds",
     name: "تخم کتان",
@@ -1095,7 +1216,7 @@ export const FOODS: FoodItem[] = [
     servingUnit: "گرم",
     servingWeightGrams: 100,
     source: "USDA FoodData Central",
-  }
+  },
 ];
 
 export const MEAL_LABELS: Record<MealType, string> = {

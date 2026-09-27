@@ -1,17 +1,48 @@
 import type { FoodItem, LoggedFood, MealType } from '@/types';
+
 import { uid } from '@/utils/format';
 
+
 export function computeNutrition(food: FoodItem, quantity: number) {
+  let multiplier: number;
+
+  if (food.unit === 'عدد') {
+    if (food.servingWeightGrams) {
+      const totalWeightGrams = quantity * food.servingWeightGrams;
+
+      multiplier = totalWeightGrams / 100;
+    } else {
+      multiplier = quantity;
+    }
+  }
+
+  else if (food.unit === 'گرم') {
+    multiplier = quantity / 100;
+  }
+
+  // غذاهای بر اساس میلی‌لیتر
+  else if (food.unit === 'میلی‌لیتر') {
+    multiplier = quantity / 100;
+  }
+  else {
+    multiplier = quantity;
+  }
+
   return {
-    calories: food.calories * quantity,
-    protein: food.protein * quantity,
-    carbs: food.carbs * quantity,
-    fat: food.fat * quantity,
+    calories: food.calories * multiplier,
+    protein: food.protein * multiplier,
+    carbs: food.carbs * multiplier,
+    fat: food.fat * multiplier,
   };
 }
 
-export function createLoggedFood(food: FoodItem, quantity: number, meal: MealType): LoggedFood {
+export function createLoggedFood(
+  food: FoodItem,
+  quantity: number,
+  meal: MealType,
+): LoggedFood {
   const n = computeNutrition(food, quantity);
+
   return {
     id: uid(),
     foodId: food.id,
@@ -34,6 +65,11 @@ export function sumNutrition(foods: LoggedFood[]) {
       carbs: acc.carbs + f.carbs,
       fat: acc.fat + f.fat,
     }),
-    { calories: 0, protein: 0, carbs: 0, fat: 0 },
+    {
+      calories: 0,
+      protein: 0,
+      carbs: 0,
+      fat: 0,
+    },
   );
 }
