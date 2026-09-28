@@ -1,6 +1,6 @@
 'use client'
-
-import { useState } from 'react';
+import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
+import { useEffect, useState } from 'react';
 import { Check, Target } from 'lucide-react';
 import { useStore } from '../../store';
 import type { Goals } from '@/types';
@@ -25,6 +25,9 @@ export function SettingsView() {
     setTimeout(() => setSaved(false), 2000);
   }
 
+  const {getUser} = useKindeBrowserClient();
+  const user = getUser();
+ 
   const fields: { key: keyof Goals; label: string; hint: string }[] = [
     { key: 'calories', label: 'هدف کالری روزانه', hint: 'کالری' },
     { key: 'protein', label: 'هدف پروتئین', hint: 'گرم' },
@@ -46,6 +49,8 @@ export function SettingsView() {
 
       <div className="glass rounded-2xl p-5 space-y-5">
         <p className="text-sm text-gray-500 dark:text-gray-400">
+          {user?.given_name}
+          عزیز
           اهداف روزانه خود را تنظیم کنید. این مقادیر در صفحه اصلی برای محاسبه پیشرفت استفاده می‌شوند.
         </p>
 
@@ -59,7 +64,7 @@ export function SettingsView() {
                 type="number"
                 value={form[field.key]}
                 onChange={(e) => update(field.key, e.target.value)}
-                className="flex-1 bg-white/40 dark:bg-white/[0.06] rounded-xl py-3 px-4 text-gray-800 dark:text-white outline-none focus:ring-2 focus:ring-accent-400 tabular-nums text-lg font-medium"
+                className="flex-1 bg-white/40 dark:bg-white/6 rounded-xl py-3 px-4 text-gray-800 dark:text-white outline-none focus:ring-2 focus:ring-accent-400 tabular-nums text-lg font-medium"
                 min="0"
               />
               <span className="text-sm text-gray-400 dark:text-gray-500 w-12 text-center">
