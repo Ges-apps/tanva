@@ -98,7 +98,7 @@ export default function HomePage() {
 
         {/* Footer */}
         <p className="mt-6 text-center text-xs text-gray-400 dark:text-gray-600">
-          تغذیه بهتر، زندگی بهتر 🌱
+          با تغذیه بهتر در سلامتی رو وا کن
         </p>
 
       </div>
