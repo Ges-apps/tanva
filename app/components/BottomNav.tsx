@@ -6,7 +6,7 @@ import { useStore } from '../../store';
 const NAV_ITEMS: { view: View; label: string; icon: typeof Plus }[] = [
   { view: 'dashboard', label: 'خانه', icon: LayoutDashboard },
   { view: 'add', label: 'افزودن', icon: Plus },
-  { view : 'bmi' , label : 'شاخص توده بدنی' , icon:Activity},
+  { view : 'bmi' , label : 'بی ام آی' , icon:Activity},
   { view: 'history', label: 'تاریخچه', icon: History },
   { view: 'settings', label: 'تنظیمات', icon: Settings },
 ];
