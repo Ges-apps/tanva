@@ -45,4 +45,4 @@ export interface Goals {
 
 export type Theme = 'light' | 'dark';
 
-export type View = 'dashboard' | 'add' | 'history' | 'settings';
+export type View = 'dashboard' | 'add' | 'history' | 'settings' | 'bmi';

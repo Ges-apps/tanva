@@ -1,11 +1,12 @@
 'use client'
-import { LayoutDashboard, Plus, History, Settings } from 'lucide-react';
+import { LayoutDashboard, Plus, History, Settings, Activity } from 'lucide-react';
 import type { View } from '@/types';
 import { useStore } from '../../store';
 
 const NAV_ITEMS: { view: View; label: string; icon: typeof Plus }[] = [
   { view: 'dashboard', label: 'خانه', icon: LayoutDashboard },
   { view: 'add', label: 'افزودن', icon: Plus },
+  { view : 'bmi' , label : 'شاخص توده بدنی' , icon:Activity},
   { view: 'history', label: 'تاریخچه', icon: History },
   { view: 'settings', label: 'تنظیمات', icon: Settings },
 ];

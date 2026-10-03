@@ -7,7 +7,7 @@ import { sumNutrition } from '@/utils/nutrition';
 import { CircularProgress } from '@/components/CircularProgress';
 import { MacroBar } from '@/components/MacroBar';
 import { MealList } from '@/components/MealList';
-
+import { Lightbulb } from 'lucide-react'
 export function DashboardView() {
   const goals = useStore((s) => s.goals);
   const days = useStore((s) => s.days);
